@@ -64,9 +64,6 @@ Finalmente, conectamos las salidas de las compuertas AND, OR y del sumador a las
 
 
 ## Resultados
-
-> Aquí explicas los resultados obtenidos, puedes incluir una imagen del esquemático utilizando la forma `![](archivo_de_imagen.png)` donde `archivo_de_imagen.png` es el resultado de usar la función *Archivo->Exportar->Exportar PNG Grande* del simulador. Es recomendable ejecutar y detener la simulación una vez antes de realizar la exportación.
-
 En base al procedimiento descripto anteriormente, realizamos la simulación de la ALU utilizando el simulador DIGITAl.
 En la simulación, se elegieron los valores 8 y 5 para las señales A y B respectivamente. Luego, se vieron las resultados al variar las señales de control. 
 
