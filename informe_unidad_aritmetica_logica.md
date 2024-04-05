@@ -64,6 +64,10 @@ Finalmente, conectamos las salidas de las compuertas AND, OR y del sumador a las
 
 
 ## Resultados
+El circuito final es el siguiente
+
+![](unidad_aritmetica_logica_8.png)
+
 En base al procedimiento descripto anteriormente, realizamos la simulación de la ALU utilizando el simulador DIGITAl.
 En la simulación, se elegieron los valores 8 y 5 para las señales A y B respectivamente. Luego, se vieron las resultados al variar las señales de control. 
 

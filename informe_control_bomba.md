@@ -71,6 +71,9 @@ Bc  Bt | B = Bc and Bt
 
 
 ## Resultados
+El circuito final es el siguiente
+
+![](control_bomba.png)
 
 Al realizar la simulación, se pudo observar que la bomba solo se enciende cuando hay suficiente agua en la cisterna, manteniendo el nivel de agua del tanque entre los niveles Tl y Th.
 

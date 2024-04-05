@@ -74,16 +74,6 @@
       <pos x="800" y="160"/>
     </visualElement>
     <visualElement>
-      <elementName>Const</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Value</string>
-          <long>0</long>
-        </entry>
-      </elementAttributes>
-      <pos x="900" y="300"/>
-    </visualElement>
-    <visualElement>
       <elementName>RS_FF_AS</elementName>
       <elementAttributes/>
       <pos x="400" y="260"/>
