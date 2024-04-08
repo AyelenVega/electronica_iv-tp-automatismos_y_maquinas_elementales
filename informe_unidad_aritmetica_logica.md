@@ -10,14 +10,15 @@ La Unidad Arimético Logica (ALU) en la CPU del procesador se encarga de realiza
 
 En primer lugar, veamos cuales son los distintos modos de operación 
 
-invB  logico  and | resultado
- 0      0      -  |  A + B
- 0      1      0  |  A OR B
- 0      1      1  |  A AND B
- 1      0      -  |  A - B
- 1      1      0  |  A OR (notB)
- 1      1      1  |  A AND (notB)
-
+| invB  | logico | and | resultado         |
+|-------|--------|-----|-------------------|
+| 0     | 0      | -   | $A + B$           |
+| 0     | 1      | 0   | $A \vee B$        |
+| 0     | 1      | 1   | $A \wedge B$      |
+| 1     | 0      | -   | $A - B$           |
+| 1     | 1      | 0   | $A \vee \bar{B}$  |
+| 1     | 1      | 1   | $A \wedge \bar{B}$|
+ 
 
 Los primero que podemos notar es que resultado dependerá del valor que tomen las señales invB, logico y and. 
 Observamos entonces, que para poder elegir entre los distintos modos de operación, podemos utilizar un multiplexor de 8 a 1 con una entrada de selección de 3 bits donde cada bit corresponderá a una de las tres señales de control.
@@ -30,14 +31,14 @@ también podemos utilizar un sumador para realizar la resta.
 
 Entonces, los modos de operación serían los siguientes:
 
-invB  logico  and | resultado
- 0      0      -  |  A + B
- 0      1      0  |  A OR B
- 0      1      1  |  A AND B
- 1      0      -  |  A + (notB) + 1
- 1      1      0  |  A OR (notB)
- 1      1      1  |  A AND (notB)
-
+| invB  | logico | and | resultado          |
+|-------|--------|-----|--------------------|
+| 0     | 0      | -   | $A + B$            |
+| 0     | 1      | 0   | $A \vee B$         |
+| 0     | 1      | 1   | $A \wedge B$       |
+| 1     | 0      | -   | $A + \bar{B} + 1$  |         
+| 1     | 1      | 0   | $A \vee \bar{B}$   |
+| 1     | 1      | 1   | $A \wedge \bar{B}$ |
 
  Por otro lado, observamos que siempre que invB sea igual a 1, vamos a trabajar con B negado, y cuando invB es igual a cero, trabajaremos con B. Para poder seleccionar si trabajamos con B o con B negado utilizaremos un multiplexor de 2 a 1 con entrada de selección de 1 bit
  A la entrada de selección conectaremos la señal invB, y a las entradas de datos conectaremos las señales B y B negado. Así, si invB es igual a 1 (entrada de selección igual a 1) la salida será B negado (notB), y si invB es igual a 0 (entrada de selección igual a 0), la salida será B. Por conveniencia, llamaremos "sumandoB" a la salida del multiplexor 2 a 1.
@@ -73,15 +74,16 @@ En la simulación, se elegieron los valores 8 y 5 para las señales A y B respec
 
 
 
-invB  logico  and |  imagen del resultado
- 0      0      0  |  ![](sim_unidad_aritmetica_logica.png)
- 0      0      1  |  ![](sim_unidad_aritmetica_logica_1.png)
- 0      1      0  |  ![](sim_unidad_aritmetica_logica_2.png)
- 0      1      1  |  ![](sim_unidad_aritmetica_logica_3.png)
- 1      0      0  |  ![](sim_unidad_aritmetica_logica_4.png)
- 1      0      1  |  ![](sim_unidad_aritmetica_logica_5.png) 
- 1      1      0  |  ![](sim_unidad_aritmetica_logica_6.png)
- 1      1      1  |  ![](sim_unidad_aritmetica_logica_7.png)
+|invB |logico |and | imagen del resultado                    |
+|-----|-------|----|-----------------------------------------|
+| 0   | 0     | 0  | ![](sim_unidad_aritmetica_logica.png)   |
+| 0   | 0     | 1  | ![](sim_unidad_aritmetica_logica_1.png) |
+| 0   | 1     | 0  | ![](sim_unidad_aritmetica_logica_2.png) |
+| 0   | 1     | 1  | ![](sim_unidad_aritmetica_logica_3.png) |
+| 1   | 0     | 0  | ![](sim_unidad_aritmetica_logica_4.png) |
+| 1   | 0     | 1  | ![](sim_unidad_aritmetica_logica_5.png) |
+| 1   | 1     | 0  | ![](sim_unidad_aritmetica_logica_6.png) |
+| 1   | 1     | 1  | ![](sim_unidad_aritmetica_logica_7.png) |
 
 
 

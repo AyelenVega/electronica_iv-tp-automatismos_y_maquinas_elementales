@@ -25,16 +25,17 @@ En otras palabras, si la bomba estaba apagada (cisterna cargándose) debe perman
 Es decir, tenemos lo siguiente
 Cok=Cl=0 bomba apagada (Bc=0)
 Cok=Cl=1 bomba encendida (Bc=1)
-Cok=0 Cl=1 mantiene estado 
+Cok=0 Cl=1 mantiene estado (ME)
 
 Donde Bc indica si la bomba puede estar o no prendida 
 Para recordar en que estado se encuentra la bomba utlizaremos un flip flop S-R.  En la entrada de set se conectará la señal Cl negada (notCl), en la entrada de reset se conectará la señal Cok y la señal que nos indica si la bomba puede o no estar prendida (Bc) se conectará a Q negado (notQ). Tendremos lo siguiente
 
 
-Cl Cok  S R | Q  notQ  Bc
-0   0   1 0 | 1   0    0
-1   0   0 0 | mantiene estado  
-1   1   0 1 | 0   1    1
+| Cl | Cok | S | R | Q  | notQ | Bc |
+|----|-----|---|---|----|------|----|
+| 0  | 0   | 1 | 0 | 1  | 0    | 0  |
+| 1  | 0   | 0 | 0 | ME | ME   | ME |
+| 1  | 1   | 0 | 1 | 0  | 1    | 1  |
 
 Observamos que no se dará el estado no permitido S=R=1 ya que no puede ocurrir Cl=0 y Cok=1 (si todos los sensores estan funcionando correctamente)
 
@@ -53,21 +54,23 @@ donde Bt nos indica si la bomba debe prenderse
 
 Al igual que en el caso anterior utilizaremos un flip flop S-R para recordar el estado en el que se encuentra la bomba. A la entrada de set estará conectada la señal Tl negada (notTl), a la entrada de reset se conectara la eñal Th y la señal indicadora Bt se conecta a la salida Q.
 
-Tl  Th  S R | Q   Bt
-0   0   1 0 | 1    1
-1   0   0 0 | mantiene estado  
-1   1   0 1 | 0    0
+| Tl | Th | S | R | Q  | Bt |
+|----|----|---|---|----|----|
+| 0  | 0  | 1 | 0 | 1  | 1  |
+| 1  | 0  | 0 | 0 | ME | ME |
+| 1  | 1  | 0 | 1 | 0  | 0  |
 
 
 Observamos que en este caso tampoco se dará el estado no permitido S=R=1 ya que no puede darse que Tl=0 y Th=1.
 
 Finalmente, como habiamos mencionado anteriormente, la bomba solo se encendera cuando se den simultaneamente los casos en que la bomba pueda y deba estar encendida. Es decir, la bomba se prenderá solo cuando Bt=1 y Bc=1, en el resto de los casos la bomba estará apagada. Para esto, utilizaremos una compuerta AND. Si llamamos B a la señal que indica si la bomba esa encendida (si B=1 la bomba esta encendida y si B=0 la bomba esta apagada), el resultado seria el siguiente
 
-Bc  Bt | B = Bc and Bt
-0   0  |      0
-0   1  |      0
-1   0  |      0
-1   1  |      1
+| Bc | Bt | B = Bc and Bt |
+|----|----|---------------|
+| 0  | 0  |      0        |
+| 0  | 1  |      0        |
+| 1  | 0  |      0        |
+| 1  | 1  |      1        |
 
 
 ## Resultados
